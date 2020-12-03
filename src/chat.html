@@ -7,10 +7,22 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/photon.css">
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/chat.css">
     <!-- Electron Javascript -->
     <!--<script src="app.js" charset="utf-8"></script>-->
     <style>
-
+        .list-group-item:hover strong {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .list-group-item:hover {
+            background-color: gray;
+        }
+        
+        .list-group-item:hover p {
+            color: white;
+        }
     </style>
 </head>
 
@@ -48,8 +60,39 @@
                     </ul>
                 </div>
                 <!--Desktop Template-->
+                <div class="pane-sm sidebar">
+                    <ul class="list-group" id="chat-list">
+                        <li class="list-group-header">
+                            <input class="form-control" type="text" placeholder="Search for someone">
+                        </li>
+                        <li class="list-group-item">
+                            <img class="img-circle media-object pull-left" src="/assets/img/avatar.jpg" width="32" height="32">
+                            <div class="media-body">
+                                <strong>List item title</strong>
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img class="img-circle media-object pull-left" src="/assets/img/avatar2.png" width="32" height="32">
+                            <div class="media-body">
+                                <strong>List item title</strong>
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <div class="pane">
-                    <img src="assets/img/sand.jpg">
+                    <div class="mesgs">
+                        <div class="msg_history" id="msg-box">
+                            <!-- 메세지 써지는 곳  -->
+                        </div>
+                        <div class="type_msg">
+                            <div class="input_msg_write">
+                                <input type="text" class="write_msg" placeholder="Type a message" />
+                                <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,6 +104,7 @@
             </ul>
         </footer>
     </div>
+    <script src="assets/js/chat.js"></script>
 </body>
 
 </html>

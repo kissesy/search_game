@@ -4,7 +4,7 @@ const tbody = table.querySelector("tbody");
 const send = document.querySelector("#send");
 const receive = document.querySelector("#receive");
 const download = document.querySelector("#download");
-const chatting = document.querySelector("#chatting");
+
 
 function init() {
     if (send) {
@@ -16,9 +16,7 @@ function init() {
     if (download) {
         download.addEventListener("click", DownloadMail);
     }
-    if (chatting) {
-        chatting.addEventListener("click", ChattingMail);
-    }
+
 }
 
 const sendMail = [{
@@ -39,21 +37,7 @@ const Download = [];
 
 const Chatting = [];
 
-function SendMail() {
-    setActive(send);
-    tbody.innerHTML = "";
-    sendMail.forEach(function(e) {
-        const tr = document.createElement('tr'); //tr addEventListener
-        tr.addEventListener("click", ShowDetail);
-        for (let key in e) {
-            const tmp = document.createElement('td');
-            tmp.innerText = e[key];
-            tr.appendChild(tmp);
-        }
-        tbody.appendChild(tr);
-    });
 
-}
 
 function getElement() {
     let element = document.querySelector('span.nav-group-item.active');
@@ -73,16 +57,28 @@ function setActive(what_element) {
     */
 }
 
+function SendMail() {
+    setActive(send);
+    tbody.innerHTML = "";
+    sendMail.forEach(function(e) {
+        const tr = document.createElement('tr'); //tr addEventListener
+        tr.addEventListener("click", ShowDetail);
+        for (let key in e) {
+            const tmp = document.createElement('td');
+            tmp.innerText = e[key];
+            tr.appendChild(tmp);
+        }
+        tbody.appendChild(tr);
+    });
+
+}
+
 function ReceiveMail() {
     setActive(receive);
 }
 
 function DownloadMail() {
     setActive(download);
-}
-
-function ChattingMail() {
-    setActive(chatting);
 }
 
 // 보여주고 뒤로가기 버튼도 만들어야 함. 
