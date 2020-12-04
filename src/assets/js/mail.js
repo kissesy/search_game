@@ -5,7 +5,6 @@ const send = document.querySelector("#send");
 const receive = document.querySelector("#receive");
 const download = document.querySelector("#download");
 
-
 function init() {
     if (send) {
         send.addEventListener("click", SendMail);

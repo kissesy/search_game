@@ -65,15 +65,31 @@ function load_contact() {
 
         div.setAttribute("class", "media-body");
         li.setAttribute("class", "list-group-item");
+        //li.setAttribute("id", "contact-item");
         li.addEventListener("click", do_chat);
         strong.innerText = e['name'];
         p.innerText = e['description'];
+        //div.setAttribute("id", "contact");
         div.appendChild(img);
         div.appendChild(strong);
         div.appendChild(p);
         li.appendChild(div);
         ul.appendChild(li);
     });
+}
+
+function getElement() {
+    let element = document.querySelector('li.list-group-item.select');
+    return element ? element : undefined;
+}
+
+function setActive(what_element) {
+    let element = getElement();
+    if (element === undefined) {
+        return;
+    }
+    element.classList.toggle("select");
+    what_element.classList.toggle("select");
 }
 
 /*
@@ -130,8 +146,10 @@ function load_chat() {
     });
 }
 
-function do_chat() {
-    console.log("Hello world");
+function do_chat(event) {
+    //console.log("Hello world");
+    console.log(event.target);
+
 }
 
 init();
